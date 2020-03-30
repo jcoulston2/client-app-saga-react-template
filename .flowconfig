@@ -1,0 +1,3 @@
+[ignore]
+.*/__tests__/.*
+.*/__node_modules__/.*
