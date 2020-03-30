@@ -31,25 +31,17 @@ function App(): React.Node {
     initResize();
   };
 
-  // Simple Hoc that makes our rendering a little easier to pass down props
-  // when using router.
-  const renderWithProps = (Component, ComponetProps) => defaultProps => {
-    return <Component {...defaultProps} {...ComponetProps} />;
-  };
-
   useEffect(() => {
     handleResponsiveness();
   }, []);
 
   // Routes
   return (
-    <>
-      <Switch>
-        <Route path="/" exact>
-          <HomeView />
-        </Route>
-      </Switch>
-    </>
+    <Switch>
+      <Route path="/" exact>
+        <HomeView />
+      </Route>
+    </Switch>
   );
 }
 
