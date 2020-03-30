@@ -1,0 +1,10 @@
+{
+  "presets": ["next/babel", "@babel/preset-env", "@babel/preset-flow"],
+  "plugins": [
+    "@babel/plugin-proposal-object-rest-spread",
+    "require-context-hook",
+    "transform-class-properties",
+    ["styled-components", { "ssr": true, "displayName": true, "preprocess": false }]
+  ]
+  //"ignore": ["server"]
+}
