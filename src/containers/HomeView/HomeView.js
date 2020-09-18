@@ -17,13 +17,8 @@ type SomeComponentProps = {
 function HomeView({ clickedText, firstAction, ...rest }: SomeComponentProps): React.Node {
   return (
     <>
-      {/**
-       * Could be good to make use of a 'skeleton' component for reuse accorss different views
-       * e.g. this could hold the header, footer and theme etc
-       */}
       <Theme />
       <Header clickedText={clickedText} firstAction={firstAction} {...rest} />
-      {/** Other modules */}
     </>
   );
 }
@@ -31,7 +26,6 @@ function HomeView({ clickedText, firstAction, ...rest }: SomeComponentProps): Re
 /**
  * @Info: Data
  */
-
 function mapStateToProps({ appState, homeViewState }) {
   return {
     clickedText: homeViewState.clickedText,
@@ -45,7 +39,7 @@ function mapStateToProps({ appState, homeViewState }) {
  */
 function mapDispatchToProps(dispatch) {
   return {
-    firstAction: clickedText => {
+    firstAction: (clickedText) => {
       return dispatch(actions.firstAction(clickedText));
     },
   };

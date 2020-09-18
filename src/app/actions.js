@@ -8,7 +8,7 @@ export const actionTypes = {
 };
 
 export const actions = {
-  setClientWidth: function(clientWidth) {
+  setClientWidth: function (clientWidth) {
     return {
       type: actionTypes.SET_CLIENT_WIDTH,
       clientWidth,

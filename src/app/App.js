@@ -1,7 +1,5 @@
 /**
  * @Info: App is our top level, we define the routing here and we import our containers
- * Note we are making use of the store.dispatch for setting state globally, we could use a saga for our app
- * but generally for this case below we don't really need to
  */
 
 import React, { useEffect } from 'react';
@@ -11,7 +9,12 @@ import store from './store';
 import { actions } from './actions';
 
 function App(): React.Node {
-  // This will set the screen with in the store when resising the window
+  /**
+   * @Info: This is just a simple listener that triggers on a window resize and sets the client with
+   * in the store, note for this case we are not using a saga, just a simple store dispatch which
+   * can also be used.
+   */
+
   const handleResponsiveness = () => {
     let timedFn;
     const { dispatch } = store;
@@ -19,6 +22,9 @@ function App(): React.Node {
     const initResize = () =>
       (timedFn = setTimeout(() => {
         const clientWidth = document.body.clientWidth;
+
+        // this is the common way to dispatch to the store via the native dispatch method that redux provides
+        // however when dispatching to the store below container level, we should use a saga
         dispatch(actions.setClientWidth(clientWidth));
       }, 200));
 
